@@ -1,0 +1,19 @@
+{
+	"name" : "Metatavu/wordpress-metamind",
+	"description" : "Wordpress integration for Metamind",
+	"keywords" : [
+		"wordpress",
+		"plugin"
+	],
+	"license" : "AGPL-3.0",
+	"type" : "wordpress-plugin",
+	"require" : {
+		"metatavu/metamind-client-php": "*@dev"
+	},
+	"repositories" : [
+		{
+      "type": "git",
+      "url": "https://github.com/metatavu/metamind-client-php.git"
+    }
+	]
+}
