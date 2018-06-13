@@ -3,7 +3,7 @@
  * Created on Feb 28, 2018
  * Plugin Name: Wordpress Metamind integration
  * Description: Wordpress integration for Metamind
- * Version: 0.0.10
+ * Version: 0.0.1
  * Author: Metatavu Oy
  */
 
