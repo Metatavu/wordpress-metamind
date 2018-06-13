@@ -34,6 +34,7 @@
         register_setting('Metamind', 'Metamind');
         add_settings_section('api', __( "API", 'Metamind' ), null, 'Metamind');
         $this->addOption('api', 'url', 'api-url', __( "API URL", 'Metamind'));
+        $this->addOption('api', 'story', 'story', __( "Story", 'Metamind'));
         $this->addOption('api', 'text', 'username', __( "Username", 'Metamind'));
         $this->addOption('api', 'text', 'password', __( "Password", 'Metamind'));
       }

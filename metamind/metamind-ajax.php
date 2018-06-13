@@ -40,7 +40,7 @@
       $session = getSession($locale, $timeZone, $story, $visitor);
       $sessionId = $session['id'];
     }
-
+    
     $messagesApi = ApiClient::getMessagesApi();
     $messageInfo = new \Metatavu\Metamind\Api\Model\Message([
       "sessionId" => $sessionId,
