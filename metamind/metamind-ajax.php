@@ -7,7 +7,10 @@
   use \Metatavu\Metamind\Api\ApiClient;
   use \Metatavu\Metamind\Settings\Settings;
 
-  add_action('wp_ajax_send_message', function () {
+  add_action('wp_ajax_nopriv_send_message', 'send_bot_message');
+  add_action('wp_ajax_send_message', 'send_bot_message');
+
+  function send_bot_message () {
     $session = null;
     $sessionId = $_POST['data']['sessionId'];
     $story = $_POST['data']['story'];
@@ -51,10 +54,9 @@
     echo($message);
 
     wp_die();
-  });
+  };
 
   function getSession($locale, $timeZone, $story, $visitor) {
-    error_log('getSession');
     $sessionsApi = ApiClient::getSessionsApi();
     $sessionInfo = new \Metatavu\Metamind\Api\Model\Session([
       "locale" => $locale,
