@@ -33,12 +33,14 @@
       public function adminInit() {
         register_setting('Metamind', 'Metamind');
         add_settings_section('api', __( "API", 'Metamind' ), null, 'Metamind');
-        $this->addOption('api', 'url', 'api-url', __( "API URL", 'Metamind'));
-        $this->addOption('api', 'story', 'story', __( "Story", 'Metamind'));
-        $this->addOption('api', 'text', 'username', __( "Username", 'Metamind'));
-        $this->addOption('api', 'text', 'password', __( "Password", 'Metamind'));
+        $this->addOption('api', 'url', 'auth-server-url', __( "Auth server URL", 'Metamind'));
+        $this->addOption('api', 'text', 'auth-resource', __( "Auth resource", 'Metamind'));
+        $this->addOption('api', 'text', 'auth-user', __( "Username", 'Metamind'));
+        $this->addOption('api', 'text', 'auth-pass', __( "Password", 'Metamind'));
+        $this->addOption('api', 'url', 'api-basepath', __( "API Base path", 'Metamind'));
+        $this->addOption('api', 'story', 'api-story-id', __( "Story Id", 'Metamind'));
       }
-
+      
       /**
        * Adds new option
        * 
