@@ -1,19 +1,34 @@
 {
   "compilerOptions": {
-    "esModuleInterop": true,
+    "baseUrl": "./src",
+    "outDir": "../js",
     "module": "esnext",
-    "lib": [ "es6", "dom" ],
-    "noImplicitAny": true,
-    "noEmitOnError": true,
-    "removeComments": false,
-    "sourceMap": true,
     "target": "es5",
-    "baseUrl": ".",
-    "rootDir": "src",
+    "lib": ["es6", "dom"],
+    "sourceMap": true,
+    "allowJs": true,
+    "jsx": "react",
     "moduleResolution": "node",
+    "rootDir": "src",
+    "forceConsistentCasingInFileNames": true,
+    "noImplicitReturns": true,
+    "noImplicitThis": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "suppressImplicitAnyIndexErrors": true,
+    "noUnusedLocals": false,
     "allowSyntheticDefaultImports": true
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "build",
+    "scripts",
+    "acceptance-tests",
+    "webpack",
+    "jest",
+    "src/setupTests.ts",
+    "webpack.config.js",
+    "Gruntfile.js",
+    "externals.js"
   ]
 }

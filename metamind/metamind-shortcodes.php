@@ -19,22 +19,29 @@
        * Constructor
        */
       public function __construct() {
-        /* wp_register_style('jquery-ui', '//cdn.metatavu.io/libs/jquery-ui/1.12.1/jquery-ui.min.css');
-        wp_register_style('flatpickr', '//cdn.metatavu.io/libs/flatpickr/4.0.6/flatpickr.min.css');
-  
-        wp_register_script('moment', "//cdn.metatavu.io/libs/moment/2.17.1/moment-with-locales.js");
-        wp_register_script('jquery-ui_touch-punch', "//cdn.metatavu.io/libs/jquery.ui.touch-punch/0.2.3/jquery.ui.touch-punch.min.js");
-        wp_register_script('flatpickr', '//cdn.metatavu.io/libs/flatpickr/4.0.6/flatpickr.min.js');
-        wp_register_script('flatpickr-fi', '//cdn.metatavu.io/libs/flatpickr/4.0.6/l10n/fi.js');
-        wp_register_script('metamind-bot', "$metaformUrl/js/form.js");
-        wp_register_script('metamind-client', "$metaformUrl/js/metaform-client.min.js", ['jquery']);
-
-        wp_register_script('metamind-init', plugin_dir_url(dirname(__FILE__)) . 'metamind-init.js', ['jquery-core']);
-        wp_localize_script('metamind-init', 'metamindmwp', [ 'ajaxurl' => admin_url( 'admin-ajax.php' ) ]);
-        wp_enqueue_script('metamind-init');
-        add_shortcode('metamind', [$this, 'metamindShortcode']); */
-
         wp_register_script('metamind-scripts', plugin_dir_url(dirname(__FILE__)) . 'js/bundle.js', ['jquery-core']);
+        wp_localize_script('metamind-scripts', 'metamindmwp', [ 
+          "auth" => [
+            "url" => Settings::getValue("auth-server-url"),
+            "realmId" => Settings::getValue("auth-realm"),
+            "clientId" => Settings::getValue("auth-resource"),
+            "username" => Settings::getValue("auth-user"),
+            "password" => Settings::getValue("auth-pass")
+          ],
+          "api" => [
+            "url" => Settings::getValue("api-url")
+          ],
+          "story" => [
+            "id" => Settings::getValue("story-id"),
+            "locale" => Settings::getValue("story-locale"),
+            "timeZone" => Settings::getValue("story-timezone"),
+          ],
+          "widget" => [
+            "avatar" => Settings::getValue("widget-avatar")
+          ]
+        ]);
+
+        wp_register_style('metamind-styles', plugin_dir_url(dirname(__FILE__)) . 'css/metamind.css');
         add_shortcode('metamind', [$this, 'metamindShortcode']);
       }
       
@@ -50,6 +57,7 @@
         ], $tagAttrs);
 
         wp_enqueue_script('metamind-scripts');
+        wp_enqueue_style('metamind-styles');
 
         return sprintf('<div class="metamind-bot-container"></div>');
       }

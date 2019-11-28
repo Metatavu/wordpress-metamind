@@ -19,3 +19,31 @@ export interface AuthConfig {
   username: string;
   password: string;
 }
+
+export interface MetamindWP {
+  api: {
+    url: string
+  },
+  story: {
+    id: string,
+    locale: string,
+    timeZone: string,
+    initParams?: string
+  },
+  auth: {
+    url: string,
+    realmId: string,
+    clientId: string,
+    username: string,
+    password: string
+  },
+  widget: {
+    avatar: string
+  }
+}
+
+export interface MessageData {
+  key: string,
+  content: string,
+  from: "USER" | "BOT"
+}

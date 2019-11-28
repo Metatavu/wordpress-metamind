@@ -12,7 +12,8 @@ export default class Auth {
    */
   public static async login(config: AuthConfig) {
     const created = new Date();
-    const response = await fetch(config.url, {
+
+    const response = await fetch(`${config.url}/realms/${config.realmId}/protocol/openid-connect/token`, {
       method: "POST",
       body: querystring.stringify({
         grant_type: "password",

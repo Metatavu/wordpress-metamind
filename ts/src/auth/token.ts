@@ -1,37 +1,31 @@
 import Auth from "./auth";
-import { AccessToken } from "../types";
+import { AccessToken, MetamindWP } from "../types";
 
-export default new class Token {
+declare var metamindmwp: MetamindWP;
+
+class Token {
 
   private accessToken: AccessToken;
 
   constructor() {
-    this.refreshToken();
     setInterval(async () => {
       this.refreshToken();
     }, 30000);
   }
 
   public getAccessToken = async () => {
-    while (true) {
-      if (this.accessToken) {
-        return this.accessToken;
-      }
-
-      await this.waitAsync(300);
+    if (!this.accessToken) {
+      this.accessToken = await Auth.login(metamindmwp.auth);
     }
-  }
 
-  private waitAsync = (timeout: number) => {
-    return new Promise((resolve) => {
-      setTimeout(resolve, timeout);
-    });
+    return this.accessToken;
   }
 
   private refreshToken = async () => {
     if (!this.accessToken) {
       return;
     }
+
     if (!Auth.isTokenValid(this.accessToken)) {
       const accessToken = await Auth.refreshToken(this.accessToken);
       if (accessToken) {
@@ -41,3 +35,5 @@ export default new class Token {
   }
 
 }
+
+export default new Token();

@@ -35,10 +35,14 @@
         add_settings_section('api', __( "API", 'Metamind' ), null, 'Metamind');
         $this->addOption('api', 'url', 'auth-server-url', __( "Auth server URL", 'Metamind'));
         $this->addOption('api', 'text', 'auth-resource', __( "Auth resource", 'Metamind'));
+        $this->addOption('api', 'text', 'auth-realm', __( "Auth realm", 'Metamind'));
         $this->addOption('api', 'text', 'auth-user', __( "Username", 'Metamind'));
         $this->addOption('api', 'text', 'auth-pass', __( "Password", 'Metamind'));
-        $this->addOption('api', 'url', 'api-basepath', __( "API Base path", 'Metamind'));
-        $this->addOption('api', 'story', 'api-story-id', __( "Story Id", 'Metamind'));
+        $this->addOption('api', 'url', 'api-url', __( "API URL", 'Metamind'));
+        $this->addOption('api', 'text', 'story-id', __( "Story Id", 'Metamind'));
+        $this->addOption('api', 'text', 'story-locale', __( "Default Locale", 'Metamind'));
+        $this->addOption('api', 'text', 'story-timezone', __( "Default Time Zone", 'Metamind'));
+        $this->addOption('api', 'text', 'widget-avatar', __( "Avatar image", 'Metamind'));
       }
       
       /**
