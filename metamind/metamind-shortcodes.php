@@ -37,7 +37,9 @@
             "timeZone" => Settings::getValue("story-timezone"),
           ],
           "widget" => [
-            "avatar" => Settings::getValue("widget-avatar")
+            "avatar" => Settings::getValue("widget-avatar"),
+            "primaryColor" => Settings::getValue("widget-primary-color"),
+            "secondaryColor" => Settings::getValue("widget-secondary-color")
           ]
         ]);
 

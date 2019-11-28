@@ -4,14 +4,15 @@ import { Session } from "generated/client";
 import { MetamindWP } from "types";
 import MessageList from "./message-list";
 import { MessageData } from "../types/index";
-import { Input } from "@material-ui/core";
+import { Input, withStyles, WithStyles } from "@material-ui/core";
+import styles from "../styles/styles";
 
 declare var metamindmwp: MetamindWP;
 
 /**
  * Component props
  */
-interface Props {
+interface Props extends WithStyles<typeof styles> {
 }
 
 /**
@@ -78,8 +79,9 @@ class Chat extends React.Component<Props, State> {
    * Component render method
    */
   public render() {
+    const { classes } = this.props;
     return (
-      <div className="metamind-chat">
+      <div className={ classes.root }>
         { this.renderMessageList() }
         { this.renderInput() }
       </div>
@@ -99,9 +101,10 @@ class Chat extends React.Component<Props, State> {
    * Renders input
    */
   private renderInput = () => {
+    const { classes } = this.props;
     return (
-      <div className="metamind-input">
-        <Input onKeyUp={ this.onInputKeyUp } value={ this.state.currentMessage } onChange={ this.onInputChange }/>
+      <div className={ classes.input }>
+        <Input fullWidth onKeyUp={ this.onInputKeyUp } value={ this.state.currentMessage } onChange={ this.onInputChange }/>
       </div>
     );
   }
@@ -209,4 +212,4 @@ class Chat extends React.Component<Props, State> {
 
 }
 
-export default Chat;
+export default withStyles(styles)(Chat);

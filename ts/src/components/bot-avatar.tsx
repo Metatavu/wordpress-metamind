@@ -1,13 +1,14 @@
 import * as React from "react";
-import { Avatar } from "@material-ui/core";
+import { Avatar, WithStyles, withStyles } from "@material-ui/core";
 import { MetamindWP } from "types";
+import styles from "../styles/styles";
 
 declare var metamindmwp: MetamindWP;
 
 /**
  * Component props
  */
-interface Props {
+interface Props extends WithStyles<typeof styles> {
   onAvatarClick: () => void
 }
 
@@ -15,7 +16,7 @@ interface Props {
  * Component state
  */
 interface State {
-  bottom: number
+  scale: number
 }
 
 /**
@@ -33,7 +34,7 @@ class BotAvatar extends React.Component<Props, State> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      bottom: 0
+      scale: 1
     };
   }
 
@@ -43,7 +44,7 @@ class BotAvatar extends React.Component<Props, State> {
   public componentDidMount = () => {
     this.intervalId = setInterval(() => {
       this.setState({
-        bottom: this.state.bottom > 0 ? 0 : 3
+        scale: this.state.scale > 1 ? 1 : 1.1
       });
     }, 1000);
   }
@@ -59,17 +60,14 @@ class BotAvatar extends React.Component<Props, State> {
    * Component render method
    */
   public render() {
+    const { classes } = this.props;
     return (
-      <div className="metamind-avatar">
+      <div className={ classes.avatarContainer }>
         <Avatar alt="Metamind"
           onClick={ this.props.onAvatarClick }
+          className={ classes.avatar }
           style={{
-            width: 60,
-            height: 60,
-            cursor: "pointer",
-            transition: "margin-bottom 1s ease-in-out",
-            marginBottom: this.state.bottom,
-            backgroundColor: "#fff"
+            transform: `scale(${ this.state.scale })`,
           }}
           src={ metamindmwp.widget.avatar } />
       </div>
@@ -78,4 +76,4 @@ class BotAvatar extends React.Component<Props, State> {
 
 }
 
-export default BotAvatar;
+export default withStyles(styles)(BotAvatar);

@@ -1,7 +1,9 @@
 import * as React from "react";
 import { MessageData } from "types";
+import { withStyles, WithStyles } from "@material-ui/core";
+import styles from "../styles/styles";
 
-export interface Props {
+export interface Props extends WithStyles<typeof styles> {
   messages: MessageData[]
 }
 
@@ -28,8 +30,9 @@ class MessageList extends React.Component<Props, State> {
    * Component render method
    */
   public render() {
+    const { classes } = this.props;
     return (
-      <div className="metamind-message-list">
+      <div className={ classes.messageList }>
         {
           this.props.messages.map((message) => this.renderMessage(message) )
         }
@@ -39,12 +42,13 @@ class MessageList extends React.Component<Props, State> {
 
   /**
    * Renders a message
-   * 
+   *
    * @param message message
    */
   private renderMessage = (message: MessageData) => {
+    const { classes } = this.props;
     return (
-      <div key={ message.key } className="metamind-message">
+      <div key={ message.key } className={ classes.message }>
         { message.content }
       </div>
     );
@@ -52,4 +56,4 @@ class MessageList extends React.Component<Props, State> {
 
 }
 
-export default MessageList;
+export default withStyles(styles)(MessageList);

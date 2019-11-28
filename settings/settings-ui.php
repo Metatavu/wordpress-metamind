@@ -43,6 +43,8 @@
         $this->addOption('api', 'text', 'story-locale', __( "Default Locale", 'Metamind'));
         $this->addOption('api', 'text', 'story-timezone', __( "Default Time Zone", 'Metamind'));
         $this->addOption('api', 'text', 'widget-avatar', __( "Avatar image", 'Metamind'));
+        $this->addOption('api', 'text', 'widget-primary-color', __( "Primary color", 'Metamind'));
+        $this->addOption('api', 'text', 'widget-secondary-color', __( "Secondary color", 'Metamind'));
       }
       
       /**

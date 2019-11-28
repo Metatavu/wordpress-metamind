@@ -39,6 +39,8 @@ export interface MetamindWP {
   },
   widget: {
     avatar: string
+    primaryColor: string
+    secondaryColor: string
   }
 }
 
