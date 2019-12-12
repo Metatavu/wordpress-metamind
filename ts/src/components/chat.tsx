@@ -4,8 +4,9 @@ import { Session } from "generated/client";
 import { MetamindWP } from "types";
 import MessageList from "./message-list";
 import { MessageData } from "../types/index";
-import { Input, withStyles, WithStyles } from "@material-ui/core";
+import { Input, withStyles, WithStyles, Button, IconButton } from "@material-ui/core";
 import styles from "../styles/styles";
+import CloseIcon from "@material-ui/icons/CloseSharp";
 
 declare var metamindmwp: MetamindWP;
 
@@ -13,6 +14,7 @@ declare var metamindmwp: MetamindWP;
  * Component props
  */
 interface Props extends WithStyles<typeof styles> {
+  onClose(): void
 }
 
 /**
@@ -24,7 +26,7 @@ interface State {
   globalQuickResponses: string[],
   hint?: string,
   messages: MessageData[],
-  currentMessage: string
+  currentMessage: string,
 }
 
 /**
@@ -82,6 +84,7 @@ class Chat extends React.Component<Props, State> {
     const { classes } = this.props;
     return (
       <div className={ classes.root }>
+        { this.renderCloseButton() }
         { this.renderMessageList() }
         { this.renderInput() }
       </div>
@@ -93,9 +96,13 @@ class Chat extends React.Component<Props, State> {
    */
   private renderMessageList = () => {
     return (
-      <MessageList messages={ this.state.messages }/>
-    );
-  }
+        <MessageList
+          messages={ this.state.messages }
+          responses={ this.state.quickResponses }
+          onQuickResponseClick={ this.sendMessage }
+        />
+      );
+    }
 
   /**
    * Renders input
@@ -104,11 +111,32 @@ class Chat extends React.Component<Props, State> {
     const { classes } = this.props;
     return (
       <div className={ classes.input }>
-        <Input fullWidth onKeyUp={ this.onInputKeyUp } value={ this.state.currentMessage } onChange={ this.onInputChange }/>
+        {/* TODO: TextField would give nicer visuals */}
+        <Input disableUnderline fullWidth onKeyUp={ this.onInputKeyUp } value={ this.state.currentMessage } onChange={ this.onInputChange }/>
+        <Button variant="text" color="primary" className={ classes.start } onClick={() => this.restartConversation()}>Aloita alusta</Button>
       </div>
     );
   }
 
+  private restartConversation = () => {
+    this.sendMessage("Aloita alusta");
+  }
+
+  /**
+   * Render close button
+   */
+  private renderCloseButton = () => {
+    const { classes } = this.props;
+    return (
+      <IconButton
+        className={ classes.close }
+        color="primary"
+        onClick={ () => this.props.onClose() }
+      >
+      <CloseIcon fontSize="small" />
+    </IconButton>
+    );
+  }
   /**
    * Sends an init message
    *

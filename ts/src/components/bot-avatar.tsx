@@ -24,7 +24,7 @@ interface State {
  */
 class BotAvatar extends React.Component<Props, State> {
 
-  private intervalId: number;
+  private intervalId: any;
 
   /**
    * Constructor

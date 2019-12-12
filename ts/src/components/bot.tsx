@@ -1,6 +1,6 @@
 import * as React from "react";
 import { ThemeProvider } from "@material-ui/styles";
-import { CssBaseline } from "@material-ui/core";
+import { CssBaseline, Fade } from "@material-ui/core";
 import theme from "../styles/theme";
 import BotAvatar from "./bot-avatar";
 import Chat from "./chat";
@@ -66,7 +66,7 @@ class Bot extends React.Component<Props, State> {
       return null;
     }
 
-    return <Chat/>;
+    return <Chat onClose={ () => this.setState({ chatVisible: false }) }/>;
   }
 
   /**
