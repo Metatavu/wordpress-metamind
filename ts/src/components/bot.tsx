@@ -9,6 +9,7 @@ import Chat from "./chat";
  * Component props
  */
 interface Props {
+  initParams: string | null
 }
 
 /**
@@ -66,7 +67,7 @@ class Bot extends React.Component<Props, State> {
       return null;
     }
 
-    return <Chat onClose={ () => this.setState({ chatVisible: false }) }/>;
+    return <Chat initParams={ this.props.initParams } onClose={ () => this.setState({ chatVisible: false }) }/>;
   }
 
   /**

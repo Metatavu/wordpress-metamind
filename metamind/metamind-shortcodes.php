@@ -56,12 +56,13 @@
        */
       public function metamindShortcode($tagAttrs) {
         $attrs = shortcode_atts([
+          "init-params" => ""
         ], $tagAttrs);
 
         wp_enqueue_script('metamind-scripts');
         wp_enqueue_style('metamind-styles');
 
-        return sprintf('<div class="metamind-bot-container"></div>');
+        return sprintf('<div class="metamind-bot-container" data-init-params="%s"></div>', $attrs["init-params"]);
       }
       
     }
