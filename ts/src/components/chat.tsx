@@ -14,6 +14,7 @@ declare var metamindmwp: MetamindWP;
  * Component props
  */
 interface Props extends WithStyles<typeof styles> {
+  initParams: string | null,
   onClose(): void
 }
 
@@ -210,7 +211,7 @@ class Chat extends React.Component<Props, State> {
    * @returns an init message
    */
   private getInitMessage = () => {
-    return "INIT" + (metamindmwp.story.initParams ? ` ${metamindmwp.story.initParams}` : "");
+    return "INIT" + (this.props.initParams ? ` ${this.props.initParams}` : "");
   }
 
   /**

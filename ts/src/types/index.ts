@@ -27,8 +27,7 @@ export interface MetamindWP {
   story: {
     id: string,
     locale: string,
-    timeZone: string,
-    initParams?: string
+    timeZone: string
   },
   auth: {
     url: string,
