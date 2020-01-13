@@ -147,14 +147,14 @@ export default createStyles({
     "& input": {
       borderRadius: 50,
       height: 45,
-      borderWidth: "1px !important",
+      borderWidth: 1,
       fontSize: 14,
       background: "#fff",
       border: "solid 1px #ccc",
       boxSizing: "border-box",
       outline: "none",
-      padding: "0.36rem 0.66rem !important",
-      paddingRight: "45px !important",
+      padding: "0.36rem 0.66rem",
+      paddingRight: 45,
       outlineOffset: 0,
       width: "100%",
       margin: 0,
@@ -168,14 +168,13 @@ export default createStyles({
   sendButton: {
     right: 5,
     top: 5,
-    backgroundColor: "#fff !important",
+    backgroundColor: "#fff",
     position: "absolute",
-    padding: "5px !important",
+    padding: 5,
     outline: "none",
-    borderRadius: "50% !important",
-    border: "0 !important",
+    borderRadius: "50%",
     "&:focus": {
-      backgroundColor: "#fff !important",
+      backgroundColor: "#fff",
       outline: "none",
       outlineOffset: "none"
     }
@@ -187,7 +186,7 @@ export default createStyles({
     marginTop: theme.spacing(1),
     fontSize: 12,
     fontWeight: "bold",
-    backgroundColor: "#fff !important",
+    backgroundColor: "#fff",
     "&:focus": {
       outline: "none",
       background: "inherit"
@@ -201,9 +200,9 @@ export default createStyles({
     transform: "translate3d(-50%, -50%, 0)",
     boxShadow: "1px 1px 1px rgba(0,0,0,0.2)",
     padding: theme.spacing(1),
-    backgroundColor: "#fff !important",
-    borderRadius: "50% !important",
-    border: "1px solid #f5f5f5 !important",
+    backgroundColor: "#fff",
+    borderRadius: "50%",
+    border: "1px solid #f5f5f5",
     color: "#222",
     transition: "color 0.2s ease-out",
     "&:hover": {
