@@ -1,16 +1,18 @@
 import { createStyles } from "@material-ui/core";
 import theme from "./theme";
-import SendIcon from '@material-ui/icons/Send';
 
 export default createStyles({
   root: {
     position: "relative",
     height: 500,
-    width: 300,
+    width: 320,
+    [theme.breakpoints.down("md")]: {
+      width: 280
+    },
     backgroundColor: theme.palette.background.default,
     borderColor: theme.palette.primary.dark,
     boxShadow: "0 0 30px rgba(0, 0, 0, 0.2)",
-    borderTopLeftRadius: 5,
+    borderTopLeftRadius: 5
   },
   avatarContainer: {
     margin: theme.spacing(1),
@@ -93,7 +95,7 @@ export default createStyles({
     borderWidth: 1,
     borderStyle: "solid",
     "& p": {
-      fontSize: 12,
+      fontSize: 14,
       margin: 0
     }
   },
@@ -115,7 +117,7 @@ export default createStyles({
     borderWidth: 1,
     borderStyle: "solid",
     "& p": {
-      fontSize: 12,
+      fontSize: 14,
       margin: 0
     }
   },
@@ -145,14 +147,14 @@ export default createStyles({
     "& input": {
       borderRadius: 50,
       height: 45,
-      borderWidth: 1,
+      borderWidth: "1px !important",
       fontSize: 14,
       background: "#fff",
       border: "solid 1px #ccc",
       boxSizing: "border-box",
       outline: "none",
-      padding: "0.36rem 0.66rem",
-      paddingRight: 45,
+      padding: "0.36rem 0.66rem !important",
+      paddingRight: "45px !important",
       outlineOffset: 0,
       width: "100%",
       margin: 0,
@@ -164,15 +166,16 @@ export default createStyles({
     }
   },
   sendButton: {
-    right: 6,
-    top: "50%",
-    background: "#f5f5f5",
-    transform: "translateY(-50%)",
+    right: 5,
+    top: 5,
+    backgroundColor: "#fff !important",
     position: "absolute",
-    padding: 5,
+    padding: "5px !important",
     outline: "none",
+    borderRadius: "50% !important",
+    border: "0 !important",
     "&:focus": {
-      background: "#f5f5f5",
+      backgroundColor: "#fff !important",
       outline: "none",
       outlineOffset: "none"
     }
@@ -184,6 +187,7 @@ export default createStyles({
     marginTop: theme.spacing(1),
     fontSize: 12,
     fontWeight: "bold",
+    backgroundColor: "#fff !important",
     "&:focus": {
       outline: "none",
       background: "inherit"
@@ -197,7 +201,9 @@ export default createStyles({
     transform: "translate3d(-50%, -50%, 0)",
     boxShadow: "1px 1px 1px rgba(0,0,0,0.2)",
     padding: theme.spacing(1),
-    background: theme.palette.background.default,
+    backgroundColor: "#fff !important",
+    borderRadius: "50% !important",
+    border: "1px solid #f5f5f5 !important",
     color: "#222",
     transition: "color 0.2s ease-out",
     "&:hover": {

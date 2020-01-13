@@ -43,7 +43,7 @@ class Bot extends React.Component<Props, State> {
     return (
       <ThemeProvider theme={ theme }>
         <CssBaseline />
-        <div className="metamind-bot" style={{ position: "fixed", right: 0, bottom: 0 }}>
+        <div className="metamind-bot" style={{ position: "fixed", right: 0, bottom: 0, zIndex: 2000 }}>
           { this.renderAvatar() }
           { this.renderChat() }
         </div>
