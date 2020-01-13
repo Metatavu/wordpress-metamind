@@ -5,6 +5,7 @@ import { MetamindWP } from "types";
 import MessageList from "./message-list";
 import { MessageData } from "../types/index";
 import { Input, withStyles, WithStyles, Button, IconButton } from "@material-ui/core";
+import SendIcon from "@material-ui/icons/Send";
 import styles from "../styles/styles";
 import CloseIcon from "@material-ui/icons/CloseSharp";
 
@@ -112,8 +113,13 @@ class Chat extends React.Component<Props, State> {
     const { classes } = this.props;
     return (
       <div className={ classes.input }>
-        {/* TODO: TextField would give nicer visuals */}
-        <Input disableUnderline fullWidth onKeyUp={ this.onInputKeyUp } value={ this.state.currentMessage } onChange={ this.onInputChange }/>
+        {/* TextField would give better visuals */}
+        <div style={{ position: "relative" }}>
+          <Input disableUnderline fullWidth onKeyUp={ this.onInputKeyUp } value={ this.state.currentMessage } onChange={ this.onInputChange }/>
+          <IconButton size="small" className={ classes.sendButton } color="primary" onClick={() => this.onSendButtonClick() }>
+            <SendIcon className={ classes.sendIcon } />
+          </IconButton>
+        </div>
         <Button variant="text" color="primary" className={ classes.start } onClick={() => this.restartConversation()}>Aloita alusta</Button>
       </div>
     );
@@ -239,6 +245,16 @@ class Chat extends React.Component<Props, State> {
     }
   }
 
+  /**
+   * Send message with send button
+   *
+   */
+  private onSendButtonClick = () => {
+    this.sendMessage(this.state.currentMessage);
+    this.setState({
+      currentMessage: ""
+    });
+  }
 }
 
 export default withStyles(styles)(Chat);
