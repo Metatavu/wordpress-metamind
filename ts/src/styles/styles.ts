@@ -1,5 +1,6 @@
 import { createStyles } from "@material-ui/core";
 import theme from "./theme";
+import SendIcon from '@material-ui/icons/Send';
 
 export default createStyles({
   root: {
@@ -42,7 +43,7 @@ export default createStyles({
     transition: "transform 1s ease-in-out",
     backgroundColor: theme.palette.background.default,
     borderColor: theme.palette.primary.dark,
-    borderWidth: 2,
+    borderWidth: 1,
     borderStyle: "solid"
   },
   messageListContainer: {
@@ -69,16 +70,16 @@ export default createStyles({
     display: "flex",
     alignItems: "center",
     paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(2),
-    paddingBottom: theme.spacing(1)
+    paddingRight: theme.spacing(2)
   },
   messageAvatar: {
     width: 40,
     height: 40,
     backgroundColor: theme.palette.background.default,
     borderColor: theme.palette.primary.dark,
-    borderWidth: 2,
-    borderStyle: "solid"
+    borderWidth: 1,
+    borderStyle: "solid",
+    boxShadow: "1px 1px 2px rgba(0,0,0,0.2)"
   },
   botMessageBubble: {
     backgroundColor: theme.palette.primary.main,
@@ -88,6 +89,9 @@ export default createStyles({
     display: "flex",
     width: "fit-content",
     boxShadow: "1px 1px 2px rgba(0,0,0,0.2)",
+    borderColor: "#92cc69",
+    borderWidth: 1,
+    borderStyle: "solid",
     "& p": {
       fontSize: 12,
       margin: 0
@@ -97,8 +101,7 @@ export default createStyles({
     display: "flex",
     justifyContent: "flex-end",
     paddingLeft: theme.spacing(2),
-    paddingRight: theme.spacing(2),
-    paddingBottom: theme.spacing(1)
+    paddingRight: theme.spacing(2)
   },
   messageBubble: {
     backgroundColor: theme.palette.background.paper,
@@ -108,6 +111,9 @@ export default createStyles({
     display: "flex",
     width: "fit-content",
     boxShadow: "1px 1px 2px rgba(0,0,0,0.2)",
+    borderColor: "#e0dddd",
+    borderWidth: 1,
+    borderStyle: "solid",
     "& p": {
       fontSize: 12,
       margin: 0
@@ -141,11 +147,38 @@ export default createStyles({
       height: 45,
       borderWidth: 1,
       fontSize: 14,
+      background: "#fff",
+      border: "solid 1px #ccc",
+      boxSizing: "border-box",
+      outline: "none",
+      padding: "0.36rem 0.66rem",
+      paddingRight: 45,
+      outlineOffset: 0,
+      width: "100%",
+      margin: 0,
+      display: "block",
       "&:focus": {
         borderColor: theme.palette.primary.main,
         outline: "none"
       }
     }
+  },
+  sendButton: {
+    right: 6,
+    top: "50%",
+    background: "#f5f5f5",
+    transform: "translateY(-50%)",
+    position: "absolute",
+    padding: 5,
+    outline: "none",
+    "&:focus": {
+      background: "#f5f5f5",
+      outline: "none",
+      outlineOffset: "none"
+    }
+  },
+  sendIcon: {
+    fontSize: 24
   },
   start: {
     marginTop: theme.spacing(1),
