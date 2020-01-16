@@ -1,16 +1,18 @@
 import { createStyles } from "@material-ui/core";
 import theme from "./theme";
-import SendIcon from '@material-ui/icons/Send';
 
 export default createStyles({
   root: {
     position: "relative",
     height: 500,
-    width: 300,
+    width: 320,
+    [theme.breakpoints.down("md")]: {
+      width: 280
+    },
     backgroundColor: theme.palette.background.default,
     borderColor: theme.palette.primary.dark,
     boxShadow: "0 0 30px rgba(0, 0, 0, 0.2)",
-    borderTopLeftRadius: 5,
+    borderTopLeftRadius: 5
   },
   avatarContainer: {
     margin: theme.spacing(1),
@@ -93,7 +95,7 @@ export default createStyles({
     borderWidth: 1,
     borderStyle: "solid",
     "& p": {
-      fontSize: 12,
+      fontSize: 14,
       margin: 0
     }
   },
@@ -115,7 +117,7 @@ export default createStyles({
     borderWidth: 1,
     borderStyle: "solid",
     "& p": {
-      fontSize: 12,
+      fontSize: 14,
       margin: 0
     }
   },
@@ -164,15 +166,15 @@ export default createStyles({
     }
   },
   sendButton: {
-    right: 6,
-    top: "50%",
-    background: "#f5f5f5",
-    transform: "translateY(-50%)",
+    right: 5,
+    top: 5,
+    backgroundColor: "#fff",
     position: "absolute",
     padding: 5,
     outline: "none",
+    borderRadius: "50%",
     "&:focus": {
-      background: "#f5f5f5",
+      backgroundColor: "#fff",
       outline: "none",
       outlineOffset: "none"
     }
@@ -184,6 +186,7 @@ export default createStyles({
     marginTop: theme.spacing(1),
     fontSize: 12,
     fontWeight: "bold",
+    backgroundColor: "#fff",
     "&:focus": {
       outline: "none",
       background: "inherit"
@@ -197,7 +200,9 @@ export default createStyles({
     transform: "translate3d(-50%, -50%, 0)",
     boxShadow: "1px 1px 1px rgba(0,0,0,0.2)",
     padding: theme.spacing(1),
-    background: theme.palette.background.default,
+    backgroundColor: "#fff",
+    borderRadius: "50%",
+    border: "1px solid #f5f5f5",
     color: "#222",
     transition: "color 0.2s ease-out",
     "&:hover": {
