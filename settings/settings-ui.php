@@ -45,6 +45,11 @@
         $this->addOption('api', 'text', 'widget-avatar', __( "Avatar image", 'Metamind'));
         $this->addOption('api', 'text', 'widget-primary-color', __( "Primary color", 'Metamind'));
         $this->addOption('api', 'text', 'widget-secondary-color', __( "Secondary color", 'Metamind'));
+        $this->addOption('api', 'text', 'widget-right-offset', __( "Right offset", 'Metamind'));
+        $this->addOption('api', 'text', 'widget-bottom-offset', __( "Bottom offset", 'Metamind'));
+        $this->addOption('api', 'text', 'widget-height', __( "Chat height", 'Metamind'));
+        $this->addOption('api', 'text', 'widget-width', __( "Chat width", 'Metamind'));
+        $this->addOption('api', 'text', 'widget-mobile-width', __( "Chat mobile width", 'Metamind'));
       }
       
       /**

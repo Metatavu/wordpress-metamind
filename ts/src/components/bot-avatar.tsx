@@ -62,10 +62,10 @@ class BotAvatar extends React.Component<Props, State> {
   public render() {
     const { classes } = this.props;
     return (
-      <div className={ classes.avatarContainer }>
+      <div className={ classes.botAvatarContainer }>
         <Avatar alt="Metamind"
           onClick={ this.props.onAvatarClick }
-          className={ classes.avatar }
+          className={ classes.botAvatar }
           style={{
             transform: `scale(${ this.state.scale })`,
           }}

@@ -61,15 +61,14 @@ class MessageList extends React.Component<Props, State> {
    * Component render method
    */
   public render() {
-    const { classes } = this.props;
     return (
-      <div className={ classes.messageListContainer }>
-        <div className={ classes.messageList }>
+      <div className={ "metamind-messages-list-container" }>
+        <div className={ "metamind-messages-list"}>
           {
             this.props.messages.map((message) => this.renderMessage(message) )
           }
         </div>
-        <div className={ classes.responseList }>
+        <div className={ "metamind-quick-responses-list" }>
           {
             this.props.responses.map((response) => this.renderResponse(response) )
           }
@@ -89,12 +88,12 @@ class MessageList extends React.Component<Props, State> {
     if ( message.from === "BOT" ) {
 
       return (
-        <div key={ message.key } className={ classes.botMessage }>
+        <div key={ message.key } className={ "metamind-bot-message-container" }>
           <div>
-            <Avatar alt="Metamind" className={ classes.messageAvatar } src={ metamindmwp.widget.avatar }/>
+            <Avatar alt="Metamind" className={ "metamind-bot-message-avatar" } src={ metamindmwp.widget.avatar }/>
           </div>
           <Fade in={ true }>
-            <div className={ classes.botMessageBubble }>
+            <div className={ "metamind-bot-message-bubble" }>
               <p>
                 { message.content }
               </p>
@@ -104,8 +103,8 @@ class MessageList extends React.Component<Props, State> {
       );
     }
     return (
-      <div key={ message.key } className={ classes.message }>
-        <div className={ classes.messageBubble }>
+      <div key={ message.key } className={ "metamind-user-message-container" }>
+        <div className={ "metamind-user-message-bubble" }>
           <p>
             { message.content }
           </p>
@@ -120,13 +119,15 @@ class MessageList extends React.Component<Props, State> {
    * @param response response
    */
   private renderResponse = (response: string) => {
-    const { classes } = this.props;
     return (
-    <Fade in={ true }>
-      <Button className={ classes.response } color="secondary" size="small" variant="contained" onClick={ () => this.props.onQuickResponseClick(response) }>
-        { response }
-      </Button>
-    </Fade>
+    <Button
+      className={ "quick-response-button" }
+      color="secondary"
+      size="small"
+      variant="contained"
+      onClick={ () => this.props.onQuickResponseClick(response) }>
+      { response }
+    </Button>
     );
   }
 
