@@ -87,7 +87,7 @@ class Chat extends React.Component<Props, State> {
     return (
       <div className={ classes.root }>
         { this.renderCloseButton() }
-        { this.renderMessageList() }
+        { this.renderMessageList() } 
         { this.renderInput() }
       </div>
     );
@@ -112,15 +112,15 @@ class Chat extends React.Component<Props, State> {
   private renderInput = () => {
     const { classes } = this.props;
     return (
-      <div className={ classes.input }>
+      <div className={ "metamind-input-field"}>
         {/* TextField would give better visuals */}
         <div style={{ position: "relative" }}>
           <Input disableUnderline fullWidth onKeyUp={ this.onInputKeyUp } value={ this.state.currentMessage } onChange={ this.onInputChange }/>
-          <IconButton size="small" className={ classes.sendButton } color="primary" onClick={() => this.onSendButtonClick() }>
-            <SendIcon className={ classes.sendIcon } />
+          <IconButton size="small" className={ "metamind-send-button" } color="primary" onClick={() => this.onSendButtonClick() }>
+            <SendIcon className={ "metamind-send-icon" } />
           </IconButton>
         </div>
-        <Button variant="text" color="primary" className={ classes.start } onClick={() => this.restartConversation()}>Aloita alusta</Button>
+        <Button variant="text" color="primary" className={ "metamind-restart-button" } onClick={() => this.restartConversation()}>Aloita alusta</Button>
       </div>
     );
   }
@@ -136,7 +136,7 @@ class Chat extends React.Component<Props, State> {
     const { classes } = this.props;
     return (
       <IconButton
-        className={ classes.close }
+        className={ "metamind-close-button" }
         color="primary"
         onClick={ () => this.props.onClose() }
       >

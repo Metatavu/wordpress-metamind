@@ -4,6 +4,9 @@ import { CssBaseline, Fade } from "@material-ui/core";
 import theme from "../styles/theme";
 import BotAvatar from "./bot-avatar";
 import Chat from "./chat";
+import { MetamindWP } from "types";
+
+declare var metamindmwp: MetamindWP;
 
 /**
  * Component props
@@ -43,7 +46,14 @@ class Bot extends React.Component<Props, State> {
     return (
       <ThemeProvider theme={ theme }>
         <CssBaseline />
-        <div className="metamind-bot" style={{ position: "fixed", right: 0, bottom: 0, zIndex: 2000 }}>
+        <div
+          className="metamind-bot"
+          style={{
+            position: "fixed",
+            right: metamindmwp.widget.rightOffset || "0",
+            bottom: metamindmwp.widget.bottomOffset || "0",
+            zIndex: 2000 }}
+          >
           { this.renderAvatar() }
           { this.renderChat() }
         </div>

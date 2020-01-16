@@ -40,6 +40,11 @@ export interface MetamindWP {
     avatar: string
     primaryColor: string
     secondaryColor: string
+    rightOffset: string
+    bottomOffset: string
+    height: string
+    width: string
+    mobileWidth: string
   }
 }
 

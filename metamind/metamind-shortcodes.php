@@ -39,7 +39,12 @@
           "widget" => [
             "avatar" => Settings::getValue("widget-avatar"),
             "primaryColor" => Settings::getValue("widget-primary-color"),
-            "secondaryColor" => Settings::getValue("widget-secondary-color")
+            "secondaryColor" => Settings::getValue("widget-secondary-color"),
+            "rightOffset" => Settings::getValue("widget-right-offset"),
+            "bottomOffset" => Settings::getValue("widget-bottom-offset"),
+            "height" => Settings::getValue("widget-height"),
+            "width" => Settings::getValue("widget-width"),
+            "mobileWidth" => Settings::getValue("widget-mobile-width")
           ]
         ]);
 
